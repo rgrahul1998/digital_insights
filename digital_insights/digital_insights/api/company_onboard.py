@@ -3,7 +3,6 @@ import frappe
 
 @frappe.whitelist(allow_guest=True)
 def create_company_onboard_api(**kwargs):
-    print(kwargs)
     if frappe.db.exists("Company Onboard", {"name": kwargs.get("company")}):
         return {
             "status": "error",
