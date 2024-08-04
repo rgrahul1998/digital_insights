@@ -3,7 +3,6 @@ import frappe
 
 @frappe.whitelist(allow_guest=True)
 def create_request_demo(**kwargs):
-    print(kwargs)
     request_demo_doc = frappe.get_doc(
         {
             "doctype": "Request Demo",

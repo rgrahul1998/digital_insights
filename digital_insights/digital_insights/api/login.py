@@ -8,6 +8,9 @@ def get_access_api_token(**kwargs):
         usr = kwargs.get("usr")
         pwd = kwargs.get("pwd")
 
+        if not frappe.db.exists("User", usr):
+            error_response("User does not exist. Please signup first")
+
         if check_password(usr, pwd):
             is_first_time_login = frappe.db.get_value("User Mapping", usr, "first_time_login")
             
