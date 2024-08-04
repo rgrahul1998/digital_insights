@@ -3,6 +3,7 @@ import frappe
 
 @frappe.whitelist(allow_guest=True)
 def create_company_onboard_api(**kwargs):
+    print(kwargs)
     if frappe.db.exists("Company Onboard", {"name": kwargs.get("company")}):
         return {
             "status": "error",
@@ -19,6 +20,16 @@ def create_company_onboard_api(**kwargs):
         }
     )
     company_onboard_doc.insert()
+    company_list_doc = frappe.get_doc(
+        {
+            "doctype": "Company List",
+            "parent": kwargs.get("user"),
+            "parentfield": "company_list",
+            "parenttype": "User Mapping",
+            "company_name":  kwargs.get("company")
+        }
+    )
+    company_list_doc.insert(ignore_permissions=True)
 
     frappe.db.set_value("User Mapping", kwargs.get("user"), "first_time_login", 0)
 

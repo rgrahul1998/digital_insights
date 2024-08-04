@@ -21,6 +21,7 @@ def get_access_api_token(**kwargs):
                 
                 return success_response({   
                     "access_token": access_api_token,
+                    "user": usr,
                     "first_time_login": is_first_time_login
                 })
 
