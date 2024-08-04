@@ -18,15 +18,15 @@ def get_access_api_token(**kwargs):
             # api_key = user_doc.api_key
             # api_secret = user_doc.get_password("api_secret")
             
-            if api_key and api_secret:
-                api_token = "token"
-                access_api_token = {"access_token": api_token}
+            # if api_key and api_secret:
+            api_token = "token"
+            access_api_token = {"access_token": api_token}
                 
-                return success_response({   
-                    "access_token": access_api_token,
-                    "user": usr,
-                    "first_time_login": is_first_time_login
-                })
+            return success_response({   
+                "access_token": access_api_token,
+                "user": usr,
+                "first_time_login": is_first_time_login
+            })
 
         return error_response("Invalid credentials")
 
