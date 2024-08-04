@@ -15,11 +15,11 @@ def get_access_api_token(**kwargs):
             is_first_time_login = frappe.db.get_value("User Mapping", usr, "first_time_login")
             
             user_doc = frappe.get_doc("User", usr)
-            api_key = user_doc.api_key
-            api_secret = user_doc.get_password("api_secret")
+            # api_key = user_doc.api_key
+            # api_secret = user_doc.get_password("api_secret")
             
             if api_key and api_secret:
-                api_token = f"token {api_key}:{api_secret}"
+                api_token = "token"
                 access_api_token = {"access_token": api_token}
                 
                 return success_response({   
