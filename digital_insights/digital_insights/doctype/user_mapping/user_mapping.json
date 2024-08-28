@@ -10,7 +10,8 @@
  "field_order": [
   "user",
   "first_time_login",
-  "company_list"
+  "company_list",
+  "sidebar_components"
  ],
  "fields": [
   {
@@ -30,11 +31,17 @@
    "fieldtype": "Table",
    "label": "Company List",
    "options": "Company List"
+  },
+  {
+   "fieldname": "sidebar_components",
+   "fieldtype": "Table",
+   "label": "Sidebar Components",
+   "options": "User Sidebar Component"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-06 16:48:49.040987",
+ "modified": "2024-08-28 02:40:06.629503",
  "modified_by": "Administrator",
  "module": "Digital Insights",
  "name": "User Mapping",
