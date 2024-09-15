@@ -11,7 +11,7 @@
   "user",
   "first_time_login",
   "company_list",
-  "sidebar_components"
+  "subscription"
  ],
  "fields": [
   {
@@ -33,15 +33,16 @@
    "options": "Company List"
   },
   {
-   "fieldname": "sidebar_components",
-   "fieldtype": "Table",
-   "label": "Sidebar Components",
-   "options": "User Sidebar Component"
+   "default": "Free",
+   "fieldname": "subscription",
+   "fieldtype": "Link",
+   "label": "Subscription",
+   "options": "Website Subscription"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 02:40:06.629503",
+ "modified": "2024-09-08 01:16:27.424703",
  "modified_by": "Administrator",
  "module": "Digital Insights",
  "name": "User Mapping",
