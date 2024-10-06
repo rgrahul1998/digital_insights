@@ -12,7 +12,7 @@ def get_table_data(**kwargs):
         "dimensions": [],
         "filters": [],
         "joins": [],
-        "limit": 10,
+        # "limit": 10,
         "measures": [],
         "orders": [],
         "table": {
@@ -44,11 +44,11 @@ def get_table_data(**kwargs):
     
     query_json = json.dumps(data, indent=2)
     
-    insights_query = create_query(is_assisted_query=1)
+    # insights_query = create_query(is_assisted_query=1)
     
-    frappe.db.set_value("Insights Query", insights_query.name, "data_source", kwargs.get('data_source'))
-    frappe.db.set_value("Insights Query", insights_query.name, "json", query_json)
-    insights_query = frappe.get_doc("Insights Query", insights_query.name)
+    frappe.db.set_value("Insights Query", kwargs.get('query_name'), "data_source", kwargs.get('data_source'))
+    frappe.db.set_value("Insights Query", kwargs.get('query_name'), "json", query_json)
+    insights_query = frappe.get_doc("Insights Query", kwargs.get('query_name'))
     insights_query.save()
 
     InsightsQueryClient.run(insights_query)
